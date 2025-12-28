@@ -1325,99 +1325,80 @@ nav a:hover {
 
 
 
-/* --- HERO SECTION: FIXED SPACE & SIZE --- */
+/* --- HERO SECTION: SPACE & GAP FIX --- */
 .hero-section { 
-    min-height: auto; /* Extra white space hatane ke liye */
+    /* 90vh ko hata kar auto kiya taaki extra khali jagah khatam ho jaye */
+    min-height: auto; 
     display: flex; 
     align-items: center; 
-    /* Side padding 10% rakhi hai taaki 'H' screen se bilkul na takraye */
-    padding: 120px 10% 60px 10%; 
+    /* Top padding 100px rakhi hai navbar ke liye, bottom padding kam kar di */
+    padding: 100px 10% 40px 10%; 
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .hero-container { 
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
-    gap: 40px; 
+    gap: 30px; /* Image aur Text ke beech ka gap kam kiya */
     width: 100%; 
     flex-wrap: wrap; 
 }
 
+/* Hero Content ki spacing tight karne ke liye */
 .hero-content { 
     flex: 1.2; 
     min-width: 320px; 
-    text-align: left; 
+    text-align: left;
+    padding: 0;
 }
 
 .hero-title { 
-    /* Font size ko thoda stable kiya desktop ke liye */
     font-size: clamp(2.4rem, 5vw, 4rem); 
     font-weight: 800; 
     line-height: 1.1; 
-    margin: 15px 0;
+    /* Title ke upar-niche ka margin kam kiya */
+    margin: 10px 0 15px 0;
     background: linear-gradient(90deg, var(--primary), var(--secondary));
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent;
     word-wrap: break-word;
 }
 
-/* --- IMAGE SIZE CONTROL --- */
+.hero-text { 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    color: #666; 
+    max-width: 550px; 
+    /* Text aur Buttons ke beech ka gap fix kiya */
+    margin-bottom: 25px; 
+}
+
+/* --- IMAGE SIZE FIX --- */
 .hero-visual { 
     flex: 0.8; 
     display: flex; 
     justify-content: center; 
-    align-items: center;
 }
 
 .visual-box { 
-    position: relative; 
-    width: 100%; 
-    /* Image ko 360px par lock kiya taaki wo bahut badi na dikhe */
-    max-width: 360px; 
+    max-width: 350px; /* Image ka size thoda chota kiya taaki vertical space kam ho */
+    width: 100%;
 }
 
-.image-frame { 
-    border-radius: 24px; 
-    overflow: hidden; 
-    border: 6px solid white; 
-    box-shadow: 0 20px 50px rgba(0,0,0,0.12); 
-}
-
-.image-frame img { 
-    width: 100%; 
-    height: auto; 
-    display: block; 
-    object-fit: cover;
-}
-
-/* --- MOBILE SPECIFIC FIXES --- */
+/* --- MOBILE SPECIFIC (For Phone Screen) --- */
 @media (max-width: 768px) {
     .hero-section {
-        /* Mobile par 'H' ko protect karne ke liye extra padding */
-        padding: 100px 7% 40px 7%; 
+        padding: 80px 7% 30px 7%; /* Mobile par space aur kam kar di */
     }
     
+    .hero-container {
+        gap: 20px;
+    }
+
     .hero-title {
-        font-size: 2.3rem !important; /* Mobile friendly size */
-        text-align: center;
-        width: 100%;
-    }
-
-    .hero-content {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .visual-box {
-        max-width: 290px; /* Phone par image size chota kiya */
-        margin-top: 20px;
-    }
-
-    .stats-container {
-        justify-content: center;
-        gap: 10px;
+        font-size: 2.3rem !important;
+        margin: 10px 0 !important;
     }
 }
