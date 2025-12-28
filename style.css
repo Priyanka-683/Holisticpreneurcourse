@@ -36,33 +36,74 @@ body {
     .nav-links a:not(.btn-enroll) { display: none; } /* Mobile par sirf Enroll button dikhega */
 }
 
-/* --- HERO SECTION RESPONSIVE --- */
-.hero-section { min-height: 90vh; display: flex; align-items: center; padding: 60px 5%; }
-
-.hero-container { 
-    display: flex; align-items: center; justify-content: center; 
-    gap: 40px; width: 100%; flex-wrap: wrap; /* Photo mobile par niche aa jayegi */
+//* --- HERO SECTION RESPONSIVE FIX --- */
+.hero-section { 
+    /* 90vh mobile par bahut zyada space leta hai, isliye isse auto kiya */
+    min-height: auto; 
+    display: flex; 
+    align-items: center; 
+    /* Desktop view ke liye padding sahi hai, mobile ke liye neeche media query fix hai */
+    padding: 100px 5% 40px 5%; 
 }
 
-.hero-content { flex: 1; min-width: 300px; text-align: left; }
+.hero-container { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 30px; /* Gap thoda kam kiya */
+    width: 100%; 
+    flex-wrap: wrap; 
+}
+
+.hero-content { 
+    flex: 1; 
+    min-width: 320px; 
+    text-align: left; 
+}
 
 .hero-title { 
-    font-size: clamp(2.2rem, 8vw, 4.5rem); /* Mobile pe chota, desktop pe bada */
-    font-weight: 800; line-height: 1.1; margin: 20px 0;
+    /* clamp() desktop view aur phone view dono ko handle karega */
+    font-size: clamp(2.2rem, 6vw, 4.2rem); 
+    font-weight: 800; 
+    line-height: 1.1; 
+    margin: 15px 0; /* Margin kam ki taaki gap na dikhe */
     background: linear-gradient(90deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
     word-wrap: break-word;
 }
 
-.hero-text { font-size: 1.1rem; line-height: 1.6; color: #666; max-width: 580px; margin-bottom: 35px; }
-
-.hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
-.btn-primary, .btn-secondary { 
-    padding: 15px 30px; border-radius: 50px; font-weight: 700; cursor: pointer; 
-    text-decoration: none; text-align: center; font-size: 0.95rem;
+.hero-text { 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    color: #666; 
+    max-width: 580px; 
+    margin-bottom: 25px; /* Spacing tight ki */
 }
-.btn-primary { background: linear-gradient(90deg, #9b4dff, #ff4db8); color: white; border: none; }
-.btn-secondary { background: white; border: 1.5px solid #9b4dff; color: #9b4dff; }
+
+/* Photo aur Text ke beech ka extra space khatam karne ke liye */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 80px; /* Navbar ke niche ki jagah */
+        padding-bottom: 20px;
+    }
+    
+    .hero-content {
+        text-align: center; /* Mobile par center alignment better lagti hai */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .stats-container {
+        margin-top: 20px;
+        justify-content: center;
+    }
+}
 
 /* Stats Responsive */
 .stats-container { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
@@ -1307,6 +1348,8 @@ nav a:hover {
         word-wrap: break-word !important;
     }
 }
+
+
 
 
 
