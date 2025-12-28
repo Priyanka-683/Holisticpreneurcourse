@@ -36,81 +36,33 @@ body {
     .nav-links a:not(.btn-enroll) { display: none; } /* Mobile par sirf Enroll button dikhega */
 }
 
-//* --- HERO SECTION LAYOUT FIX --- */
-.hero-section { 
-    min-height: auto; /* Extra khali space khatam karne ke liye */
-    display: flex; 
-    align-items: center; 
-    padding: 100px 8% 40px 8%; /* Side padding badha di taaki 'H' na takraye */
-}
+/* --- HERO SECTION RESPONSIVE --- */
+.hero-section { min-height: 90vh; display: flex; align-items: center; padding: 60px 5%; }
 
 .hero-container { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; /* Content aur Image mein balance */
-    gap: 50px; 
-    width: 100%; 
-    flex-wrap: wrap; 
+    display: flex; align-items: center; justify-content: center; 
+    gap: 40px; width: 100%; flex-wrap: wrap; /* Photo mobile par niche aa jayegi */
 }
 
-.hero-content { 
-    flex: 1.2; /* Text area ko thoda zyada space di */
-    min-width: 320px; 
-}
+.hero-content { flex: 1; min-width: 300px; text-align: left; }
 
 .hero-title { 
-    /* clamp ko adjust kiya taaki screen ke bahar na jaye */
-    font-size: clamp(2.2rem, 5.5vw, 4rem); 
-    font-weight: 800; 
-    line-height: 1.1; 
-    margin: 15px 0;
+    font-size: clamp(2.2rem, 8vw, 4.5rem); /* Mobile pe chota, desktop pe bada */
+    font-weight: 800; line-height: 1.1; margin: 20px 0;
     background: linear-gradient(90deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     word-wrap: break-word;
 }
 
-/* --- IMAGE SIZE FIX --- */
-.hero-visual { 
-    flex: 0.8; /* Image container ko chota kiya */
-    min-width: 300px; 
-    display: flex; 
-    justify-content: center; 
-}
+.hero-text { font-size: 1.1rem; line-height: 1.6; color: #666; max-width: 580px; margin-bottom: 35px; }
 
-.visual-box { 
-    position: relative; 
-    width: 100%; 
-    max-width: 350px; /* Pehle 420px tha, ab chota kar diya taaki balance lage */
+.hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
+.btn-primary, .btn-secondary { 
+    padding: 15px 30px; border-radius: 50px; font-weight: 700; cursor: pointer; 
+    text-decoration: none; text-align: center; font-size: 0.95rem;
 }
-
-.image-frame { 
-    border-radius: 24px; 
-    overflow: hidden; 
-    border: 5px solid white; 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-}
-
-/* --- MOBILE SPECIFIC (H touch fix) --- */
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 80px 6% 30px 6%; /* Phone par side space maintain rakhi */
-    }
-    
-    .hero-title {
-        font-size: 2.2rem !important; /* Phone par 'H' chipkega nahi */
-        text-align: center;
-    }
-    
-    .hero-content {
-        text-align: center;
-    }
-    
-    .visual-box {
-        max-width: 280px; /* Phone par image aur choti ki taaki scrolling easy ho */
-        margin: 0 auto;
-    }
-}
+.btn-primary { background: linear-gradient(90deg, #9b4dff, #ff4db8); color: white; border: none; }
+.btn-secondary { background: white; border: 1.5px solid #9b4dff; color: #9b4dff; }
 
 /* Stats Responsive */
 .stats-container { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
