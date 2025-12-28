@@ -1315,3 +1315,109 @@ nav a:hover {
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* --- HERO SECTION: FIXED SPACE & SIZE --- */
+.hero-section { 
+    min-height: auto; /* Extra white space hatane ke liye */
+    display: flex; 
+    align-items: center; 
+    /* Side padding 10% rakhi hai taaki 'H' screen se bilkul na takraye */
+    padding: 120px 10% 60px 10%; 
+    box-sizing: border-box;
+}
+
+.hero-container { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 40px; 
+    width: 100%; 
+    flex-wrap: wrap; 
+}
+
+.hero-content { 
+    flex: 1.2; 
+    min-width: 320px; 
+    text-align: left; 
+}
+
+.hero-title { 
+    /* Font size ko thoda stable kiya desktop ke liye */
+    font-size: clamp(2.4rem, 5vw, 4rem); 
+    font-weight: 800; 
+    line-height: 1.1; 
+    margin: 15px 0;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    word-wrap: break-word;
+}
+
+/* --- IMAGE SIZE CONTROL --- */
+.hero-visual { 
+    flex: 0.8; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.visual-box { 
+    position: relative; 
+    width: 100%; 
+    /* Image ko 360px par lock kiya taaki wo bahut badi na dikhe */
+    max-width: 360px; 
+}
+
+.image-frame { 
+    border-radius: 24px; 
+    overflow: hidden; 
+    border: 6px solid white; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12); 
+}
+
+.image-frame img { 
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    object-fit: cover;
+}
+
+/* --- MOBILE SPECIFIC FIXES --- */
+@media (max-width: 768px) {
+    .hero-section {
+        /* Mobile par 'H' ko protect karne ke liye extra padding */
+        padding: 100px 7% 40px 7%; 
+    }
+    
+    .hero-title {
+        font-size: 2.3rem !important; /* Mobile friendly size */
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .visual-box {
+        max-width: 290px; /* Phone par image size chota kiya */
+        margin-top: 20px;
+    }
+
+    .stats-container {
+        justify-content: center;
+        gap: 10px;
+    }
+}
