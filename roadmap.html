@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 Pillars Roadmap | AABH</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fcfcff; overflow-x: hidden; scroll-behavior: smooth; }
+        .text-gradient { background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: rgba(147, 51, 234, 0.1); z-index: 100; }
+        #progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #9333ea, #3b82f6); transition: width 0.2s ease; }
+        .path-line { position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: rgba(147, 51, 234, 0.1); z-index: 0; }
+        
+        .pillar-card {
+            background: white; border-radius: 24px; padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s ease; display: flex; align-items: center; gap: 15px; width: 100%;
+        }
+        .pillar-img { width: 100px; height: 80px; border-radius: 14px; object-fit: cover; flex-shrink: 0; background: #f1f5f9; }
+        .progress-ring { width: 48px; height: 48px; position: relative; z-index: 10; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+        /* Modal CSS */
+        #celebration-modal {
+            display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px); z-index: 9999; align-items: center; justify-content: center; padding: 20px;
+        }
+        .modal-card {
+            background: white; border-radius: 40px; max-width: 450px; width: 100%; padding: 40px;
+            text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn { 0% { transform: scale(0.7); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
+    <div id="celebration-modal">
+        <div class="modal-card">
+            <div class="text-6xl mb-4">🏆</div>
+            <h2 class="text-3xl font-black text-slate-900 mb-3">Goal Reached!</h2>
+            <p class="text-slate-500 mb-8 text-sm leading-relaxed">You have seen the path. Now, are you ready to take the first step and actually <b>Change Your Life?</b></p>
+            <div class="flex flex-col gap-3">
+                <button onclick="window.location.href='enroll.html'" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold py-4 rounded-2xl shadow-xl hover:opacity-90 transition">
+    Yes, Start My Transformation
+</button>
+                <button onclick="closeModal()" class="text-slate-400 text-xs font-bold uppercase tracking-widest py-2">Keep Reviewing</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="p-6 flex justify-between items-center fixed w-full z-50 backdrop-blur-md bg-white/40">
+        <div class="text-2xl font-black text-purple-600">AABH</div>
+        <div class="flex items-center gap-4 text-xs font-bold text-purple-600 font-mono"><span id="percent-text">0% JOURNEY</span></div>
+    </nav>
+
+    <section class="pt-32 pb-16 px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-black mb-4 tracking-tighter" data-aos="zoom-out">The <span class="text-gradient">14-Pillar</span> Roadmap</h1>
+    </section>
+
+    <section class="relative max-w-5xl mx-auto px-6 pb-40">
+        <div class="path-line"></div>
+        <div class="space-y-20">
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2 md:pr-16" data-aos="fade-right">
+                    <div class="pillar-card border-l-4 border-purple-600">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-purple-600">Pillar 01</span><h3 class="font-bold text-slate-800">Deep Healing</h3></div>
+                    </div>
+                </div>
+                <div class="progress-ring border-2 border-purple-600 text-[10px] font-bold">7%</div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2"></div>
+                <div class="progress-ring border-2 border-blue-500 text-[10px] font-bold">14%</div>
+                <div class="md:w-1/2 md:pl-16" data-aos="fade-left">
+                    <div class="pillar-card border-l-4 border-blue-500">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/08/05/20/adventure-1807524_1280.jpg" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-blue-500">Pillar 02</span><h3 class="font-bold text-slate-800">Pure Awareness</h3></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2 md:pr-16" data-aos="fade-right">
+                    <div class="pillar-card border-l-4 border-indigo-500">
+                        <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-indigo-500">Pillar 03</span><h3 class="font-bold text-slate-800">Inner Balance</h3></div>
+                    </div>
+                </div>
+                <div class="progress-ring border-2 border-indigo-500 text-[10px] font-bold">21%</div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2"></div>
+                <div class="progress-ring border-2 border-emerald-500 text-[10px] font-bold">28%</div>
+                <div class="md:w-1/2 md:pl-16" data-aos="fade-left">
+                    <div class="pillar-card border-l-4 border-emerald-500">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-emerald-500">Pillar 04</span><h3 class="font-bold text-slate-800">Radical Honesty</h3></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2 md:pr-16" data-aos="fade-right">
+                    <div class="pillar-card border-l-4 border-rose-500">
+                        <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-rose-500">Pillar 05</span><h3 class="font-bold text-slate-800">Divine Growth</h3></div>
+                    </div>
+                </div>
+                <div class="progress-ring border-2 border-rose-500 text-[10px] font-bold">35%</div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2"></div>
+                <div class="progress-ring border-2 border-amber-500 text-[10px] font-bold">42%</div>
+                <div class="md:w-1/2 md:pl-16" data-aos="fade-left">
+                    <div class="pillar-card border-l-4 border-amber-500">
+                        <img src="https://images.unsplash.com/photo-1502139214982-d0ad755818d8?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-amber-500">Pillar 06</span><h3 class="font-bold text-slate-800">Self Sovereignty</h3></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2 md:pr-16" data-aos="fade-right">
+                    <div class="pillar-card border-l-4 border-orange-500">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-orange-500">Pillar 07</span><h3 class="font-bold text-slate-800">Vibrant Vitality</h3></div>
+                    </div>
+                </div>
+                <div class="progress-ring border-2 border-orange-500 text-[10px] font-bold">50%</div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2"></div>
+                <div class="progress-ring border-2 border-cyan-500 text-[10px] font-bold">57%</div>
+                <div class="md:w-1/2 md:pl-16" data-aos="fade-left">
+                    <div class="pillar-card border-l-4 border-cyan-500">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-cyan-500">Pillar 08</span><h3 class="font-bold text-slate-800">Inner Purpose</h3></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2 md:pr-16" data-aos="fade-right">
+                    <div class="pillar-card border-l-4 border-fuchsia-500">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-fuchsia-500">Pillar 09</span><h3 class="font-bold text-slate-800">Flow Mastery</h3></div>
+                    </div>
+                </div>
+                <div class="progress-ring border-2 border-fuchsia-500 text-[10px] font-bold">64%</div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2"></div>
+                <div class="progress-ring border-2 border-violet-500 text-[10px] font-bold">71%</div>
+                <div class="md:w-1/2 md:pl-16" data-aos="fade-left">
+                    <div class="pillar-card border-l-4 border-violet-500">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-violet-500">Pillar 10</span><h3 class="font-bold text-slate-800">Soul Leadership</h3></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2 md:pr-16" data-aos="fade-right">
+                    <div class="pillar-card border-l-4 border-sky-500">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-sky-500">Pillar 11</span><h3 class="font-bold text-slate-800">Wealth Aura</h3></div>
+                    </div>
+                </div>
+                <div class="progress-ring border-2 border-sky-500 text-[10px] font-bold">78%</div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2"></div>
+                <div class="progress-ring border-2 border-teal-500 text-[10px] font-bold">85%</div>
+                <div class="md:w-1/2 md:pl-16" data-aos="fade-left">
+                    <div class="pillar-card border-l-4 border-teal-500">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-teal-500">Pillar 12</span><h3 class="font-bold text-slate-800">Potential Unlocked</h3></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2 md:pr-16" data-aos="fade-right">
+                    <div class="pillar-card border-l-4 border-red-500">
+                        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=300" class="pillar-img">
+                        <div><span class="text-[10px] font-black text-red-500">Pillar 13</span><h3 class="font-bold text-slate-800">The Awakening</h3></div>
+                    </div>
+                </div>
+                <div class="progress-ring border-2 border-red-500 text-[10px] font-bold">92%</div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="text-center pt-24" data-aos="zoom-in">
+                <div class="w-16 h-16 bg-gradient-to-tr from-yellow-400 to-orange-500 rounded-full border-4 border-white shadow-2xl mx-auto flex items-center justify-center text-white text-2xl mb-6 relative z-10">🌍</div>
+                <div class="max-w-md mx-auto bg-white p-8 rounded-[32px] shadow-2xl border-b-8 border-yellow-500">
+                    <span class="text-yellow-600 font-black text-xs uppercase tracking-widest">Pillar 14</span>
+                    <h3 class="text-3xl font-black mt-2 text-gradient">Global Impact</h3>
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600" class="mt-6 rounded-2xl w-full h-40 object-cover">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        AOS.init({ duration: 800, once: true });
+        let modalTriggered = false;
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            document.getElementById('progress-bar').style.width = scrolled + "%";
+            document.getElementById('percent-text').innerText = Math.round(scrolled) + "% JOURNEY";
+
+            // Trigger Pop-up precisely when user reaches the end
+            if (scrolled > 98 && !modalTriggered) {
+                document.getElementById('celebration-modal').style.display = 'flex';
+                modalTriggered = true;
+            }
+        });
+
+        function closeModal() {
+            document.getElementById('celebration-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

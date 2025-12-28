@@ -1,0 +1,1208 @@
+:root {
+    --primary: #9b4dff;
+    --secondary: #ff4db8;
+    --bg: #fdfbff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: #2d2d2d; overflow-x: hidden; }
+
+/* Background Glows */
+.orb { position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(130px); z-index: -1; opacity: 0.15; }
+.orb-1 { top: -150px; left: -150px; background: var(--primary); }
+.orb-2 { bottom: -150px; right: -150px; background: var(--secondary); }
+
+/* Navbar Alignment */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 30px 8%; }
+.logo { font-weight: 800; font-size: 1.4rem; color: #1a1a1a; }
+.nav-links a { text-decoration: none; margin-left: 35px; font-weight: 600; color: #555; font-size: 0.95rem; }
+.btn-enroll { background: var(--primary); color: white !important; padding: 12px 28px; border-radius: 50px; }
+
+/* HERO ALIGNMENT - MAIN FIX */
+.hero-section { min-height: 85vh; display: flex; align-items: center; padding: 0 8%; }
+.hero-container { display: flex; align-items: center; justify-content: space-between; gap: 80px; width: 100%; }
+
+.hero-content { flex: 1.2; opacity: 1; transform: translateY(30px); }
+.hero-visual { flex: 1; opacity: 1; transform: translateY(30px); }
+
+.hero-title { font-size: 5rem; font-weight: 800; line-height: 1.1; margin: 25px 0; 
+              background: linear-gradient(90deg, var(--primary), var(--secondary));
+              -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.hero-text { font-size: 1.15rem; line-height: 1.8; color: #666; max-width: 580px; margin-bottom: 40px; }
+.purp { color: var(--primary); font-weight: 700; }
+.pink { color: var(--secondary); font-weight: 700; }
+.oran { color: #ff8c42; font-weight: 700; }
+
+/* Buttons & Stats */
+.hero-actions { display: flex; gap: 20px; margin-bottom: 50px; }
+.btn-primary { background: linear-gradient(90deg, #9b4dff, #ff4db8); color: white; border: none; padding: 20px 40px; border-radius: 50px; font-weight: 700; cursor: pointer; }
+.btn-secondary { background: white; border: 1.5px solid #9b4dff; padding: 20px 40px; border-radius: 50px; font-weight: 700; cursor: pointer; }
+
+.stats-container { display: flex; gap: 30px; }
+.stat-item { background: white; padding: 20px 30px; border-radius: 20px; border: 1px solid #9b4dff; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+.stat-item strong { display: block; font-size: 1.8rem; color: #1a1a1a; }
+
+/* Image Visual Fix */
+.visual-box { position: relative; width: 450px; }
+.image-frame { border-radius: 45px; overflow: hidden; border: 10px solid white; box-shadow: 0 50px 100px rgba(0,0,0,0.1); }
+.image-frame img { width: 100%; display: block; }
+
+.glass-tag { position: absolute; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); 
+             padding: 12px 25px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; z-index: 5; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+.live { top: 30px; right: -30px; color: #2ecc71; }
+.transform { bottom: 30px; left: -40px; }
+
+
+
+
+/* --- Mastery Section Design --- */
+.mastery-section {
+    padding: 80px 8% 0px 8%;
+    background-color: #fdfbff;
+    text-align: center;
+}
+
+.mastery-header {
+    margin-bottom: 60px;
+}
+
+.badge-sub {
+    display: inline-block;
+    color: #9b4dff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border: 1px solid #e0c3ff;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.mastery-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.mastery-header p {
+    color: #666;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mastery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Initial state (Hidden) */
+.m-card {
+    background: white;
+    padding: 45px 35px;
+    border-radius: 28px;
+    text-align: left;
+    border: 1px solid #9b4dff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    opacity: 1;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Active state (Visible) */
+.m-card.active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.m-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(155, 77, 255, 0.1);
+    border-color: #9b4dff;
+}
+
+.m-icon-box {
+    width: 54px;
+    height: 54px;
+    background: #f8f4ff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #9b4dff;
+}
+
+.m-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.m-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6a6a6a;
+}
+
+.bottom-accent-line {
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #9b4dff, #ff8c42);
+    margin: 80px auto 0;
+    border-radius: 10px;
+}
+
+/* Mobile responsive */
+@media (max-width: 992px) {
+    .mastery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .mastery-grid { grid-template-columns: 1fr; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pillars-section { padding: 80px 8%; background: #fdfbff; }
+/* --- Pillars Header Spacing Fix --- */
+.pillars-header {
+    text-align: center;
+    margin-bottom: 60px; /* Header aur Cards ke beech ka gap */
+}
+
+.badge-outline { 
+    display: inline-block; /* Margin apply karne ke liye zaroori hai */
+    border: 1px solid #e0c3ff; 
+    color: #9b4dff; 
+    padding: 6px 16px; 
+    border-radius: 50px; 
+    font-size: 11px; 
+    font-weight: 700;
+    margin-bottom: 25px; /* Badge aur Title ke beech gap */
+    letter-spacing: 1px;
+}
+
+.pillars-header h2 { 
+    font-size: 42px; 
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 15px; /* Title aur Subtitle ke beech gap */
+    line-height: 1.2;
+}
+
+.pillars-header p { 
+    font-size: 16px;
+    color: #666; 
+    max-width: 600px;
+    margin: 0 auto; /* Center alignment */
+    line-height: 1.6; /* Lines ke beech reading space */
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pillar-card {
+    background: white;
+    border: 1.5px solid #9b4dff; /* Holisticpreneur Theme Color */
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* Initial state for animation */
+    opacity: 1;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.pillar-card.show { opacity: 1; transform: translateY(0); }
+
+.pillar-card:hover {
+    box-shadow: 0 10px 25px rgba(155, 77, 255, 0.1);
+    transform: scale(1.01);
+}
+
+.p-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-right: 15px; flex-shrink: 0;
+    color: white;
+}
+
+/* Icon Backgrounds */
+.pink-bg { background: #ff4db8; }
+.orange-bg { background: #ff8c42; }
+.purple-bg { background: #9b4dff; }
+.red-bg { background: #ff4d4d; }
+.yellow-bg { background: #ffcc00; }
+.teal-bg { background: #00cbcb; }
+.blue-bg { background: #4d94ff; }
+.green-bg { background: #2ecc71; }
+
+.p-info { flex-grow: 1; }
+.p-num { font-size: 10px; font-weight: 800; color: #999; display: block; }
+.p-info h3 { font-size: 17px; margin: 2px 0; color: #1a1a1a; }
+.p-info p { font-size: 12px; color: #777; margin: 0; }
+
+.p-meta {
+    text-align: right; border-right: 1px solid #eee;
+    padding-right: 15px; margin-right: 15px;
+}
+.p-meta span { display: block; font-size: 16px; font-weight: 700; color: #333; line-height: 1; }
+.p-meta small { font-size: 9px; color: #999; }
+.p-arrow { color: #ccc; font-size: 24px; font-weight: 300; }
+
+@media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- CTA SECTION STYLING --- */
+.cta-section {
+    padding: 60px 8% 100px 8%;
+    background-color: #fdfbff;
+    display: flex;
+    justify-content: center;
+}
+
+.cta-card {
+    background: white;
+    width: 100%;
+    max-width: 950px;
+    padding: 70px 50px;
+    border-radius: 45px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 30px 70px rgba(155, 77, 255, 0.1);
+    border: 1px solid rgba(155, 77, 255, 0.15);
+    /* Entrance Animation Initial State */
+    opacity: 1;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cta-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Rocket Icon with Glow */
+.cta-rocket-box {
+    width: 85px;
+    height: 85px;
+    background: linear-gradient(135deg, #9b4dff, #ff4db8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 35px;
+    box-shadow: 0 15px 30px rgba(155, 77, 255, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+.rocket-emoji { font-size: 40px; }
+
+/* Decorative Floating Icons */
+.float-icon { position: absolute; font-size: 26px; opacity: 0.6; animation: float 4s ease-in-out infinite; }
+.crown { top: 50px; left: 60px; color: #ffcc00; transform: rotate(-15deg); }
+.sparkle-top { top: 40px; right: 70px; color: #9b4dff; }
+.sparkle-bottom { bottom: 60px; left: 60px; color: #ff4db8; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Text Styling */
+.cta-title { font-size: 36px; font-weight: 800; color: #1a1a1a; margin-bottom: 20px; }
+.cta-text { font-size: 17px; color: #666; max-width: 700px; margin: 0 auto 45px; line-height: 1.7; }
+
+/* Stats Row */
+.cta-stats { display: flex; justify-content: center; align-items: center; gap: 50px; margin-bottom: 50px; }
+.cta-stat-item strong { display: block; font-size: 32px; color: #9b4dff; font-weight: 800; }
+.cta-stat-item .infinity { font-size: 40px; line-height: 1; }
+.cta-stat-item span { font-size: 15px; color: #888; font-weight: 600; }
+.cta-divider { width: 1.5px; height: 45px; background: #f0f0f0; }
+
+/* Buttons */
+.cta-actions { display: flex; justify-content: center; gap: 25px; margin-bottom: 35px; }
+
+.btn-gradient {
+    background: linear-gradient(90deg, #9b4dff, #ff4db8);
+    color: white; border: none; padding: 20px 45px; border-radius: 60px;
+    font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.3s ease;
+}
+
+.btn-outline {
+    background: #fff; color: #9b4dff; border: 1.5px solid #e0c3ff;
+    padding: 20px 45px; border-radius: 60px; font-size: 17px; font-weight: 700; cursor: pointer;
+}
+
+.btn-gradient:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(155, 77, 255, 0.3); }
+
+/* Footer Note */
+.cta-footer { font-size: 15px; color: #777; font-weight: 600; }
+.sparkle-mini { color: #ffcc00; }
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .cta-card { padding: 50px 25px; }
+    .cta-stats { flex-direction: column; gap: 25px; }
+    .cta-divider { display: none; }
+    .cta-actions { flex-direction: column; }
+    .cta-title { font-size: 28px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.journey-section { padding: 80px 8%; background: #fdfbff; text-align: center; overflow: hidden; }
+.journey-header { margin-bottom: 60px; }
+
+/* Timeline Core */
+.timeline-container { position: relative; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
+.timeline-line { 
+    position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; 
+    background: linear-gradient(to bottom, #f0f0f0, #9b4dff, #ff4db8, #f0f0f0);
+    transform: translateX(-50%);
+}
+
+.timeline-item { position: relative; width: 50%; padding: 20px 40px; margin-bottom: 30px; opacity: 1; transition: 1s all ease; }
+.timeline-item.left { left: 0; text-align: right; transform: translateX(-50px); }
+.timeline-item.right { left: 50%; text-align: left; transform: translateX(50px); }
+.timeline-item.active { opacity: 1; transform: translateX(0); }
+
+/* Dots */
+.timeline-dot {
+    position: absolute; top: 30px; width: 40px; height: 40px; 
+    background: linear-gradient(135deg, #9b4dff, #ff4db8);
+    border-radius: 50%; color: white; display: flex; align-items: center; 
+    justify-content: center; font-weight: 800; z-index: 10;
+    box-shadow: 0 0 15px rgba(155, 77, 255, 0.3);
+}
+.left .timeline-dot { right: -20px; }
+.right .timeline-dot { left: -20px; }
+
+/* Phase Cards */
+.phase-card { 
+    background: white; padding: 25px; border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0;
+    position: relative; overflow: hidden;
+}
+.phase-meta { display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; color: #9b4dff; margin-bottom: 10px; opacity: 0.7; }
+.phase-card h3 { font-size: 20px; margin-bottom: 10px; color: #1a1a1a; }
+.phase-card p { font-size: 14px; color: #666; line-height: 1.6; }
+
+/* Tags */
+.phase-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; justify-content: inherit; }
+.tag { padding: 4px 12px; border-radius: 50px; font-size: 10px; font-weight: 700; color: white; }
+.tag.orange { background: #ff8c42; } .tag.red { background: #ff4d4d; } .tag.purple { background: #9b4dff; }
+.tag.yellow { background: #ffcc00; } .tag.teal { background: #00cbcb; } .tag.green { background: #2ecc71; }
+.tag.blue { background: #4d94ff; } .tag.pink { background: #ff4db8; }
+
+/* Footer */
+.journey-footer { margin-top: 50px; }
+.journey-footer p { font-size: 14px; color: #888; margin-bottom: 20px; }
+.journey-btns { display: flex; justify-content: center; gap: 15px; }
+.btn-primary-sm { background: #9b4dff; color: white; border: none; padding: 12px 25px; border-radius: 50px; font-weight: 700; cursor: pointer; }
+.btn-secondary-sm { background: transparent; border: 1.5px solid #9b4dff; color: #9b4dff; padding: 12px 25px; border-radius: 50px; font-weight: 700; cursor: pointer; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-line { left: 30px; }
+    .timeline-item { width: 100%; left: 0 !important; padding-left: 70px; text-align: left !important; }
+    .timeline-dot { left: 10px !important; }
+    .phase-tags { justify-content: flex-start; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- FOOTER STYLING --- */
+.main-footer {
+    background-color: #0a1128; /* Exact dark navy from image */
+    color: #ffffff;
+    padding: 80px 0 30px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 0 8%;
+    padding-bottom: 60px;
+}
+
+/* Brand Column */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.logo-icon {
+    background: linear-gradient(135deg, #ff4db8, #9b4dff);
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.footer-tagline {
+    color: #8fa3cf; /* Muted blue-grey text */
+    line-height: 1.6;
+    font-size: 15px;
+    max-width: 280px;
+}
+
+/* Links Columns */
+.footer-col h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #9b4dff; /* Purple links from image */
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ff4db8;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+    margin: 0 8%;
+}
+
+.bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #5c6b8a;
+    font-size: 14px;
+}
+
+.made-with {
+    font-weight: 500;
+}
+
+.heart {
+    color: #ff4db8;
+    margin: 0 3px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-logo { justify-content: center; }
+    .footer-tagline { margin: 0 auto; }
+    .bottom-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Badge ke andar text aur dot ko align karne ke liye */
+.badge-main span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Text aur dot ke beech ka gap */
+}
+
+/* Dot ka design */
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #9b4dff; /* Aapka purple color */
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    animation: zoomInOut 1.5s infinite ease-in-out;
+}
+
+/* Glow effect ke liye pseudo-element */
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    animation: pulseRing 1.5s infinite ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+/* --- 1. Explore 14 Pillars (Zoom In & Out Animation) --- */
+.btn-explore {
+    animation: buttonPulse 2s infinite ease-in-out;
+    transition: transform 0.3s ease;
+}
+
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); } /* Thoda bada hoga */
+    100% { transform: scale(1); }
+}
+
+/* Hover karne par pulse ruk jaye aur thoda highlight ho */
+.btn-explore:hover {
+    animation-play-state: paused;
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(155, 77, 255, 0.3);
+}
+
+/* --- 2. Watch Overview (Left to Right Blue Fill) --- */
+.btn-watch {
+    position: relative;
+    overflow: hidden; /* Taaki fill color bahar na dikhe */
+    background: transparent; /* Shuruat mein transparent */
+    color: #9b4dff; /* Border color jaisa text */
+    border: 2px solid #007bff; /* Blue border */
+    z-index: 1;
+    transition: color 0.4s ease;
+}
+
+/* Background fill layer */
+.btn-watch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Shuruat mein left side hidden */
+    width: 100%;
+    height: 100%;
+    background: #007bff; /* Blue Fill Color */
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+/* Hover Effect: Blue color left se right aayega */
+.btn-watch:hover::before {
+    left: 0;
+}
+
+/* Hover par text white ho jayega */
+.btn-watch:hover {
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Badge Zoom In & Out Animation --- */
+.badge-main {
+    display: inline-block; /* Animation ke liye zaroori hai */
+    animation: badgePulse 2.5s infinite ease-in-out; /* Dhire-dhire zoom hoga */
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+/* Zoom Animation Logic */
+@keyframes badgePulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08); /* 8% bada hoga */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Hover effect: Agar user mouse le jaye toh thoda aur highlight ho */
+.badge-main:hover {
+    animation-play-state: paused; /* Hover par animation ruk jayegi */
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+/* Enroll Now Button - Zoom Animation */
+.btn-enroll {
+    display: inline-block; /* Animation ke liye zaroori hai */
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #9b4dff, #ff4db8); /* Purple-Pink Gradient */
+    color: white;
+    font-weight: 700;
+    
+    /* Position Fix logic */
+    transform-origin: center; 
+    animation: enrollZoom 2s infinite ease-in-out;
+    transition: all 0.3s ease;
+}
+
+/* Zoom Animation: Position nahi badlegi */
+@keyframes enrollZoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.06); /* Halka sa zoom in */
+    }
+}
+
+/* Hover Effect: Mouse le jaane par animation pause ho jaye aur thoda glow kare */
+.btn-enroll:hover {
+    animation-play-state: paused;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(155, 77, 255, 0.4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.premium-logo {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    /* Isse fix rahega ki text ke aage peeche ki jagah na hile */
+    min-width: 200px; 
+}
+
+.typing-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+    font-weight: 600;
+    display: inline-block;
+    
+    /* Premium Purple Gradient */
+    background: linear-gradient(135deg, #6a11cb 0%, #9b4dff 40%, #ff4db8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Typing Effect using Clip-Path (Zero Layout Shift) */
+    position: relative;
+    white-space: nowrap;
+    
+    /* Animation: 4s typing + 1s pause, infinite loop */
+    animation: continuousTyping 5s steps(40) infinite;
+    
+    filter: drop-shadow(2px 4px 6px rgba(155, 77, 255, 0.2));
+}
+
+/* Continuous Typing Logic */
+@keyframes continuousTyping {
+    0% {
+        clip-path: inset(0 100% 0 0); /* Poora chupa hua left side se */
+    }
+    40%, 70% {
+        clip-path: inset(0 0% 0 0); /* Poora dikhayi dega (typing khatam) */
+    }
+    90%, 100% {
+        clip-path: inset(0 100% 0 0); /* Wapas chhup jayega loop ke liye */
+    }
+}
+
+/* Hover par bina hile halka glow */
+.premium-logo:hover .typing-text {
+    filter: drop-shadow(0 0 12px rgba(155, 77, 255, 0.6));
+    transition: 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.badge-main {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border-radius: 50px;
+    
+    /* --- Premium Glass Effect --- */
+    /* Background ko halka sa dark/milky rakha hai taaki black text clear dikhe */
+    background: rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* Border aur Shadow */
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    
+    /* Animation (Position fix rahegi) */
+    transform-origin: center;
+    animation: simpleZoom 2.5s infinite ease-in-out;
+    transition: all 0.3s ease;
+}
+
+.badge-main span {
+    font-size: 14px;
+    font-weight: 600; /* Black text ke liye thoda bold acha lagta hai */
+    color: #000000;    /* Text colour black */
+    letter-spacing: 0.5px;
+}
+
+/* Hover par glass thoda aur saaf dikhega */
+.badge-main:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.08); /* Halka sa extra zoom hover par */
+}
+
+/* Wahi pehle wali animation logic */
+@keyframes simpleZoom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Icons Animation --- */
+.m-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease; /* Smooth hover transition */
+    
+    /* Animation call: 3 seconds duration, smooth loop */
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+/* Floating Animation Logic */
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 5px 15px rgba(155, 77, 255, 0.1));
+    }
+    50% {
+        transform: translateY(-8px); /* Halka sa upar jayega */
+        filter: drop-shadow(0 15px 25px rgba(155, 77, 255, 0.3)); /* Glow badhega */
+    }
+}
+
+/* Card Hover par Icon ka reaction */
+.m-card:hover .m-icon-box {
+    background: var(--primary); /* Hover par box ka color change hoga */
+    color: white; /* Emoji/Icon white ho jayega agar font icon hai */
+    transform: scale(1.1) rotate(5deg); /* Thoda bada aur rotate hoga */
+    animation-play-state: paused; /* Hover par floating ruk jayegi */
+}
+
+/* Alag-alag icons ke liye thoda delay (Sequential feel ke liye) */
+.m-card:nth-child(2) .m-icon-box { animation-delay: 0.2s; }
+.m-card:nth-child(3) .m-icon-box { animation-delay: 0.4s; }
+.m-card:nth-child(4) .m-icon-box { animation-delay: 0.6s; }
+.m-card:nth-child(5) .m-icon-box { animation-delay: 0.8s; }
+.m-card:nth-child(6) .m-icon-box { animation-delay: 1s; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.badge-outline { 
+    display: inline-block;
+    border: 1px solid #e0c3ff; 
+    color: #9b4dff; 
+    padding: 6px 16px; 
+    border-radius: 50px; 
+    font-size: 11px; 
+    font-weight: 700;
+    margin-bottom: 25px; 
+    letter-spacing: 1px;
+    background: white;
+    
+    /* Animation call */
+    position: relative;
+    overflow: hidden; /* Shine effect ke liye */
+    animation: badgeFloat 3s infinite ease-in-out;
+    transition: all 0.3s ease;
+}
+
+/* 1. Floating Animation (Upar-neeche) */
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* 2. Shine Effect (Ek chamak guzregi badge se) */
+.badge-outline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(155, 77, 255, 0.2),
+        transparent
+    );
+    transition: all 0.6s;
+    animation: badgeShine 4s infinite;
+}
+
+@keyframes badgeShine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Hover Effect */
+.badge-outline:hover {
+    border-color: #9b4dff;
+    background: #f8f4ff;
+    box-shadow: 0 4px 12px rgba(155, 77, 255, 0.15);
+    cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.badge-sub {
+    display: inline-block;
+    color: #9b4dff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border: 1px solid #e0c3ff;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    background: white;
+    
+    /* Animation call */
+    position: relative;
+    animation: subBadgePulse 3s infinite ease-in-out;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 rgba(155, 77, 255, 0);
+}
+
+/* 1. Pulse Animation (Halka sa zoom aur glow) */
+@keyframes subBadgePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(155, 77, 255, 0);
+    }
+    50% {
+        transform: scale(1.05); /* Halka sa bada hoga */
+        box-shadow: 0 4px 15px rgba(155, 77, 255, 0.15); /* Soft purple glow */
+        border-color: #9b4dff;
+    }
+}
+
+/* 2. Hover Interaction */
+.badge-sub:hover {
+    background: #9b4dff;
+    color: white;
+    border-color: #9b4dff;
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(155, 77, 255, 0.25);
+    cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 1. Link ko layout ke liye invisible banao */
+.pillar-link-wrapper {
+    display: contents; 
+    text-decoration: none !important;
+}
+
+/* 2. Card ke andar ke har text element se underline hatao */
+.pillar-link-wrapper, 
+.pillar-link-wrapper *, 
+.pillar-link-wrapper:hover, 
+.pillar-link-wrapper:active {
+    text-decoration: none !important; /* Saare bacchon (children) se underline khatam */
+    outline: none !important;         /* Click box khatam */
+    -webkit-box-shadow: none;        /* Safari fix */
+}
+
+/* 3. Text color ko blue hone se bachao */
+.pillar-link-wrapper h3, 
+.pillar-link-wrapper p, 
+.pillar-link-wrapper span {
+    color: inherit; /* Jo color pehle tha wahi rahega */
+}
+
+/* 4. Hover effect jo layout ko disturb nahi karega */
+.pillar-link-wrapper:hover .pillar-card {
+    border-color: #9b4dff;
+    background-color: rgba(155, 77, 255, 0.02);
+}
+
+
+
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+
+
+
+
+
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px; /* Standard sleek height */
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%; /* Side padding (top/bottom zero) */
+    z-index: 1000;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08); /* Minimal shadow */
+    box-sizing: border-box;
+}
+
+/* Nav links ka gap aur font size adjust karein */
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px; /* Standard size */
+    margin-left: 25px;
+    font-weight: 500;
+}
+
+/* Enroll button ko compact banayein */
+.btn-enroll {
+    padding: 8px 18px !important;
+    font-size: 14px !important;
+}
+
+/* Body mein padding taaki pehla section navbar ke neeche na dabe */
+body {
+    padding-top: 60px; 
+}
+
+
+
+
+
+
+
+
+nav a {
+    text-decoration: none; /* Isse underline hat jayegi */
+    color: #333;           /* Aapka pasandida rang */
+    font-weight: 500;      /* Text ko thoda clean dikhane ke liye */
+    transition: 0.3s;      /* Hover effect ke liye smooth transition */
+}
+
+/* Jab mouse link par le jayein tab ka effect (Optional) */
+nav a:hover {
+    color: #9b4dff;        /* Hover karne par rang badle par underline na aaye */
+}

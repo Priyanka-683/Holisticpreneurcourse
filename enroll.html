@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Now | Premium Journey</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <link rel="stylesheet" href="enroll.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 font-['Plus_Jakarta_Sans'] antialiased min-h-screen">
+
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div class="absolute top-[-5%] left-[-5%] w-[30%] h-[30%] bg-purple-100 rounded-full blur-3xl opacity-60"></div>
+        <div class="absolute bottom-[-5%] right-[-5%] w-[30%] h-[30%] bg-blue-100 rounded-full blur-3xl opacity-60"></div>
+    </div>
+
+    <nav class="p-6">
+        <a href="index.html" class="inline-flex items-center text-purple-600 font-bold hover:translate-x-[-5px] transition-all">
+            <span>&larr;</span> <span class="ml-2">Back to Home</span>
+        </a>
+    </nav>
+
+    <section class="max-w-4xl mx-auto px-4 pb-12">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 tracking-tight">Step into your <span class="text-purple-600">Potential.</span></h1>
+            <p class="text-gray-500 italic">"The journey of a thousand miles begins with a single step"</p>
+        </div>
+
+        <form id="enrollForm" class="bg-white/80 backdrop-blur-md p-6 md:p-10 rounded-3xl shadow-2xl border border-white space-y-8">
+            
+            <div class="space-y-4">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                    <span class="w-7 h-7 bg-purple-600 text-white rounded-full flex items-center justify-center mr-3 text-xs">1</span>
+                    Personal Details
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" name="name" placeholder="Full Name" required class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:ring-4 focus:ring-purple-100 outline-none transition-all bg-gray-50/50">
+                    <input type="email" name="email" placeholder="Email Address" required class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:ring-4 focus:ring-purple-100 outline-none transition-all bg-gray-50/50">
+                </div>
+                <input type="tel" name="phone" placeholder="WhatsApp Number" required class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:ring-4 focus:ring-purple-100 outline-none transition-all bg-gray-50/50">
+            </div>
+
+            <div class="space-y-4">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                    <span class="w-7 h-7 bg-purple-600 text-white rounded-full flex items-center justify-center mr-3 text-xs">2</span>
+                    Select Your Path
+                </h2>
+                
+                <label class="block relative group cursor-pointer">
+                    <input type="checkbox" id="masterAll" name="Pillars[]" value="FULL 14 PILLARS" class="peer hidden" onclick="selectMaster()">
+                    <div class="p-6 rounded-2xl border-2 border-purple-100 bg-purple-50 peer-checked:border-purple-600 peer-checked:bg-purple-100 transition-all flex justify-between items-center group-hover:shadow-sm">
+                        <div>
+                            <h3 class="font-bold text-purple-900 text-lg tracking-tight">Master All 14 Pillars</h3>
+                            <p class="text-sm text-purple-700">The complete elite transformation journey</p>
+                        </div>
+                        <div class="circle-box w-6 h-6 rounded-full border-2 border-purple-400 flex items-center justify-center transition-all bg-white shadow-inner">
+                            <div class="dot w-2 h-2 bg-transparent rounded-full transition-all"></div>
+                        </div>
+                    </div>
+                </label>
+
+                <div class="relative py-4 flex items-center">
+                    <div class="flex-grow border-t border-gray-100"></div>
+                    <span class="mx-4 text-gray-400 text-[10px] font-bold uppercase tracking-widest">Or Pick Individually</span>
+                    <div class="flex-grow border-t border-gray-100"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <script>
+                        const pillarsList = ["Healing", "Optimizing Lives", "Leadership of Self", "Inner Transformation", "Spiritual Growth", "Thrive Mindset", "Insight & Awareness", "Conscious Living", "Purpose-Driven", "Real Impact", "Empowerment", "Nurturing Growth", "Elevating Mindsets", "Unfolding Potential"];
+                        pillarsList.forEach((p, i) => {
+                            document.write(`
+                                <label class="cursor-pointer group">
+                                    <input type="checkbox" name="Pillars[]" value="P${i+1}: ${p}" class="peer hidden pillar-checkbox" onclick="selectIndividual()">
+                                    <div class="h-full p-4 rounded-xl border border-gray-200 bg-white peer-checked:border-purple-600 peer-checked:bg-purple-50 transition-all text-center group-hover:border-purple-300">
+                                        <span class="block text-[9px] font-bold text-purple-400 uppercase mb-1 tracking-tighter">Pillar ${i+1}</span>
+                                        <span class="block text-xs font-bold text-gray-700 group-hover:text-purple-600 transition-colors">${p}</span>
+                                    </div>
+                                </label>
+                            `);
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <div class="flex justify-center pt-6">
+                <button type="submit" id="submitBtn" class="px-14 bg-purple-600 hover:bg-purple-700 text-white py-4 rounded-full font-extrabold text-lg shadow-xl shadow-purple-200 transition-all active:scale-95 animate-glow-bounce">
+                    Start My Transformation
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        // Mutual Exclusion Logic
+        function selectMaster() {
+            const masterAll = document.getElementById('masterAll');
+            const individualPillars = document.querySelectorAll('.pillar-checkbox');
+            if (masterAll.checked) {
+                individualPillars.forEach(p => p.checked = false);
+            }
+        }
+
+        function selectIndividual() {
+            const masterAll = document.getElementById('masterAll');
+            const individualPillars = document.querySelectorAll('.pillar-checkbox');
+            let anyChecked = false;
+            individualPillars.forEach(p => { if (p.checked) anyChecked = true; });
+            if (anyChecked) { masterAll.checked = false; }
+        }
+
+        // Formspree Submit + Pop-up Logic
+        const form = document.getElementById('enrollForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch("https://formspree.io/f/xanpwdjb", {
+                    method: "POST",
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    Swal.fire({
+                        title: 'Congratulations! 🎉',
+                        html: 'Your session has been <b style="color:#9333ea">Booked Successfully!</b><br><br>Our team will reach out to you shortly to begin your journey.',
+                        icon: 'success',
+                        confirmButtonColor: '#9333ea',
+                        confirmButtonText: 'Great, Thank You!',
+                        backdrop: `rgba(147, 51, 234, 0.3)`
+                    }).then(() => {
+                        form.reset();
+                        window.location.href = "index.html"; 
+                    });
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                Swal.fire('Oops!', 'Submission failed. Please check your internet and try again.', 'error');
+            } finally {
+                btn.innerText = "Start My Transformation";
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
