@@ -1,0 +1,61 @@
+:root {
+    --brand-color: #cf37c8;
+    --black: #0d0d0d;
+    --gray-text: #444;
+}
+
+body { margin: 0; font-family: 'Inter', sans-serif; background: #fff; color: var(--black); line-height: 1.8; scroll-behavior: smooth; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+/* HERO - WHITE THEME */
+.legal-hero {
+    padding: 150px 0 80px;
+    background: #fff;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+.legal-hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; line-height: 1.1; margin: 0; }
+.text-purple { color: var(--brand-color); }
+.purple-tag { color: var(--brand-color); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; display: block; margin-bottom: 20px; }
+.legal-hero p { max-width: 700px; margin: 25px auto 0; font-size: 1.3rem; color: #666; font-weight: 300; }
+
+/* LAYOUT GRID */
+.legal-grid { display: grid; grid-template-columns: 250px 1fr; gap: 100px; padding: 100px 0; }
+
+/* STICKY SIDEBAR */
+.legal-nav { position: sticky; top: 50px; height: fit-content; }
+.legal-nav ul { list-style: none; padding: 0; }
+.legal-nav ul li { margin-bottom: 20px; }
+.legal-nav ul li a { text-decoration: none; color: #888; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
+.legal-nav ul li a:hover { color: var(--brand-color); }
+
+/* CONTENT SECTION */
+.policy-section { margin-bottom: 100px; }
+.policy-section h2 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.8rem; 
+    color: var(--brand-color); 
+    margin-bottom: 25px; 
+}
+.policy-section p { font-size: 1.2rem; color: var(--gray-text); }
+.policy-section ul li { margin-bottom: 15px; font-size: 1.1rem; color: #555; }
+
+/* CONTACT/CTA BOX */
+.contact-box { background: #fafafa; padding: 50px; border-radius: 30px; border: 1px solid #eee; margin-top: 50px; }
+.contact-box h4 { color: var(--brand-color); font-size: 1.8rem; margin: 0 0 15px; }
+.purple-link { color: var(--brand-color); font-weight: 700; text-decoration: none; font-size: 1.2rem; }
+
+/* ABOUT FOOTER VIBE */
+.about-footer-vibe {
+    padding: 120px 0;
+    text-align: center;
+    background: #fafafa;
+}
+.about-footer-vibe h2 { font-family: 'Playfair Display', serif; font-size: 3rem; font-style: italic; color: #222; margin-bottom: 20px; }
+.signature { color: var(--brand-color); font-weight: 600; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+
+@media (max-width: 900px) {
+    .legal-grid { grid-template-columns: 1fr; }
+    .legal-nav { display: none; }
+    .legal-hero h1 { font-size: 3rem; }
+}
